@@ -1,11 +1,21 @@
-meme_dict = {
-            "CRINGE": "Garip ya da utandırıcı bir şey",
-            "LOL": "Komik bir şeye verilen cevap",
-            "NECROMANCER":"ölü çağıran",
-            "SUPPORT": "desteklemek",
-            }
-word = input("anlamadığınız bir kelime öğrenin {büyük harflerle unutma}:  ")
-if word in meme_dict.keys():
-    print(meme_dict[word])
-else:
-    print("aradığınız kelime bulunamıyoooor!!!")
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='$', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'{bot.user} olarak giriş yaptik')
+
+@bot.command()
+async def hello(ctx):
+    await ctx.send(f'Merhaba {bot.user}! Ben bir botum!')
+
+@bot.command()
+async def heh(ctx, count_heh = 5):
+    await ctx.send("he" * count_heh)
+
+bot.run("MTE2MTcwNTgyMzU3MjA4MjczOA.G6QuS7.AIRLgJugTu_KLqwxz9GOMJUUp-_fiLIPvHGP7s")
