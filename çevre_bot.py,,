@@ -1,0 +1,40 @@
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='$', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'{bot.user} olarak giriş yaptik')
+
+@bot.command()
+async def hello(ctx):
+    await ctx.send(f'Merhaba {bot.user}! Ben bir botum!')
+
+@bot.command()
+async def metal(ctx):
+    await ctx.send(f"Metal doğada 10-100 yilda yok olur. Metaller doğal çevreye ve insan sağliğina zararli olabilir.")
+
+@bot.command()
+async def plastik(ctx):
+    await ctx.send(f'Hava kirliliği Plastikler, petrol kaynakli olduklari içinkarbondioksit salinimini etkileyerek küresel isinmayi da hizlandiriyor.  ')
+
+@bot.command()
+async def kağit(ctx):
+    await ctx.send(f'Ağaç kesimi: Kağidin ham maddesi olan selüloz, ağaçlardan elde edilmektedir. Bu nedenle, kağit üretimi için her yil milyonlarca ağaç kesilmektedir.')
+
+@bot.command()
+async def cam(ctx):
+    await ctx.send(f'Cam, doğal çevreye ve insan sağliğina zararli olabilir. Cam atiklari, doğada 4000 yil gibi çok uzun bir sürede kaybolur. Ayrica, cam atiklari çevreyi kirletir ve çeşitli canlilara zarar verir')
+
+
+
+
+@bot.command()
+async def heh(ctx, count_heh = 5):
+    await ctx.send("he" * count_heh)
+
+bot.run("MTE2MTcwNTgyMzU3MjA4MjczOA.GGc1y1.1spgKsyOanVV8-daCA_B6IIQnF_kSOSNyvCZfk")
