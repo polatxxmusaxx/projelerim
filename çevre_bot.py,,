@@ -37,4 +37,4 @@ async def cam(ctx):
 async def heh(ctx, count_heh = 5):
     await ctx.send("he" * count_heh)
 
-bot.run("MTE2MTcwNTgyMzU3MjA4MjczOA.GGc1y1.1spgKsyOanVV8-daCA_B6IIQnF_kSOSNyvCZfk")
+bot.run("")
